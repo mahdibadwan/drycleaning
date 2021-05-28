@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dry Clean - Registration</title>
+    <link rel="stylesheet" href="rtl/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="rtl/dist/css/AdminLTE.min.css"/>
+</head>
+
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+        <b>Dry</b><i>cleaning</i>
+  </div>
+
+  <div class="register-box-body">
+    <p class="login-box-msg"><b>Register a new membership</b></p>
+
+    <form autocomplete="off" th:action="@{/registration}" method="post" th:object="${user}">
+    
+      <div class="form-group has-feedback">
+      <label th:if="${#fields.hasErrors('systemCustomerId')}" th:errors="*{systemCustomerId}"
+             class="validation-message"></label>
+        <input type="text" class="form-control" th:field="*{systemCustomerId}" placeholder="Customer Id">
+      </div>
+      
+      <div class="form-group has-feedback">
+      <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                               class="validation-message"></label>
+        <input type="text" class="form-control" th:field="*{name}" placeholder="Name">
+      </div>
+      
+      <div class="form-group has-feedback">
+      <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                               class="validation-message"></label>
+        <input type="text" class="form-control" th:field="*{lastName}"
+                               placeholder="Last Name">
+      </div>
+      
+       <div class="form-group has-feedback">
+		 <label h:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                            class="validation-message"></label>
+        <input type="email" class="form-control" th:field="*{email}" placeholder="Email">
+      </div>
+      
+      <div class="form-group has-feedback">
+		<label  th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"
+                            class="validation-message"> </label>           
+        <input type="text" class="form-control" th:field="*{userName}" placeholder="User Name">
+      </div>
+      
+      <div class="form-group has-feedback">
+      	<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                            class="validation-message"></label>
+        <input type="password" class="form-control" th:field="*{password}"
+                               placeholder="Password" >
+      </div>
+     
+      <div class="row">
+        <div class="col-xs-8">
+        </div>
+        <!-- /.col -->
+        <div class="box-footer">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <a href="login.html" class="text-center">I already have a membership</a>
+  </div>
+  <!-- /.form-box -->
+</div>
+<!-- /.register-box -->
+
+<!-- jQuery 2.2.0 -->
+<script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html>

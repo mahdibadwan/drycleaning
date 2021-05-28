@@ -1,0 +1,162 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="layout">
+<head>
+    <title>Customers</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+    <form id="dryCustomerForm" th:action="@{/dryCustomer/test}" th:object="${dryCustomer}" method="post">
+        <div class="panel panel-danger">
+            <div class="container">
+                <h1 th:text="#{menu.customers}"></h1>
+                <div class="form-group">
+
+                    <div class="box box-info col-sm-8">
+                        <div class="form-group row">
+                            <form class="form-horizontal">
+                                <div class="box-body col-sm-12">
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="box box-primary">
+                                                <div class="box-header">
+                                                    <h3 class="box-title" th:text="#{dryCustomer.search}"/>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="form-group col-sm-12">
+                                                        <div class="col-sm-12">
+                                                            <div class="input-group">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-search"></i>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="box box-primary">
+                                                <div class="box-header">
+                                                    <h3 class="box-title" th:text="#{dryCustomer.details}"/>
+                                                </div>
+                                                <!-- form start -->
+                                                <form role="form" th:object="${dryCustomer}">
+                                                    <div class="box-body">
+                                                        <div class="row">
+                                                            <div class="form-group col-sm-12">
+                                                                <label for="customerName"
+                                                                       th:text="#{dryCustomer.name}"/>
+                                                                <input type="text" class="form-control"
+                                                                       id="customerName"
+                                                                       th:placeholder="#{dryCustomer.name}"
+                                                                       th:field="*{name}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="customerPhone"
+                                                                       th:text="#{dryCustomer.phone}"/>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-phone"></i>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                           id="customerPhone"
+                                                                           th:placeholder="#{dryCustomer.phoneExample}"
+                                                                           th:field="*{phone}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-sm-8">
+                                                                <label for="customerAddress"
+                                                                       th:text="#{dryCustomer.address}"/>
+                                                                <input type="text" class="form-control"
+                                                                       id="customerAddress"
+                                                                       th:placeholder="#{dryCustomer.address}"
+                                                                       th:field="*{address}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="customerDiscount"
+                                                                       th:text="#{dryCustomer.discount}"/>
+                                                                <input type="number" min="0.00" step="0.01"
+                                                                       class="form-control"
+                                                                       id="customerDiscount"
+                                                                       th:placeholder="#{dryCustomer.discount}"
+                                                                       th:field="*{discount}">
+                                                            </div>
+                                                            <div class="form-group col-sm-8">
+                                                                <label for="customerEmail"
+                                                                       th:text="#{dryCustomer.email}"/>
+                                                                <input type="email" class="form-control"
+                                                                       id="customerEmail"
+                                                                       th:placeholder="#{dryCustomer.email}"
+                                                                       th:field="*{Email}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-sm-12">
+                                                                <label for="customerNote"
+                                                                       th:text="#{dryCustomer.note}"/>
+                                                                <input type="text" class="form-control"
+                                                                       id="customerNote"
+                                                                       th:placeholder="#{dryCustomer.note}"
+                                                                       th:field="*{description}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-sm-12">
+                                                                <div class="form-group col-sm-4">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox">
+                                                                        <p th:text="#{dryCustomer.sms}"></p>
+                                                                    </label>
+                                                                </div>
+                                                                </div>
+                                                                <div class="form-group col-sm-4">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox">
+                                                                        <p th:text="#{dryCustomer.EmailNotify}"></p>
+                                                                    </label>
+                                                                </div>
+                                                                </div>
+                                                                <div class="form-group col-sm-4">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox">
+                                                                        <p th:text="#{dryCustomer.delivery}"></p>
+                                                                    </label>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="box-footer">
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+
